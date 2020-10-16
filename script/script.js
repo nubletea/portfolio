@@ -113,31 +113,6 @@ const arrowFn = (step) => {
   count.arrow = pos;
   aro_col(NAV_BTNS, SECTIONS, pos);
 };
-
-// //up 버튼
-// function arrow_up() {
-//   if (count.arrow === 0) {
-//     count.arrow = SECTIONS.length - 1;
-//     aro_col(NAV_BTNS, SECTIONS, count.arrow);
-//     //   aro_col(HAN_BTNS, SECTIONS, count.arrow);
-//   } else {
-//     count.arrow -= 1;
-//     aro_col(NAV_BTNS, SECTIONS, count.arrow);
-//     //   aro_col(HAN_BTNS, SECTIONS, count.arrow);
-//   }
-// }
-// //down 버튼
-// function arrow_down() {
-//   if (count.arrow === SECTIONS.length - 1) {
-//     count.arrow = 0;
-//     aro_col(NAV_BTNS, SECTIONS, count.arrow);
-//     //   aro_col(HAN_BTNS, SECTIONS, count.arrow);
-//   } else {
-//     count.arrow += 1;
-//     aro_col(NAV_BTNS, SECTIONS, count.arrow);
-//     //   aro_col(HAN_BTNS, SECTIONS, count.arrow);
-//   }
-// }
 ///네비게이션 클릭시///
 
 function nav_bar(ME) {
