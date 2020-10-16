@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORT</title>
+    <link rel="stylesheet" href="css/material-icons.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/icon/favicon-16.png" sizes="16x16">
+    <link rel="icon" href="images/icon/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="images/icon/favicon-48.png" sizes="48x48">
+    <link rel="icon" href="images/icon/favicon-64.png" sizes="64x64">
+    <link rel="icon" href="images/icon/favicon-128.png" sizes="128x128">
+    <link rel="apple-touch-icon" href="images/icon/favicon-48.png">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo"><img src="images/logo/logo.png" alt="logo"></a>
+        <nav>
+            <ul class="gnb">
+                <li>
+                    <label>
+                        <input type="radio" name="gnb_button" onclick='nav_bar(this)'>
+                        <div class="gnb_text">
+                            <span>HOME</span>
+                            <div class="snb">
+                                <div class="tool_tip_arrow"></div>
+                                <div class="quick">
+                                    <a href="index.html" target="_blank">WEB 바로가기</a>
+                                    <a href="mobile_index.html" target="_blank">Mobile 바로가기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="gnb_button" onclick='nav_bar(this)'>
+                        <div class="gnb_text">
+                            <span>Diary</span>
+                            <div class="snb">
+                                <div class="tool_tip_arrow"></div>
+                                <div class="quick">
+                                    <a href="website/diary/about.html" target="_blank">WEB 바로가기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="gnb_button" onclick='nav_bar(this)'>
+                        <div class="gnb_text">
+                            <span>MyShop</span>
+                            <div class="snb">
+                                <div class="tool_tip_arrow"></div>
+                                <div class="quick">
+                                    <a href="website/myshop/index.html" target="_blank">WEB 바로가기</a>
+                                    <a href="website/myshop/mobile_index.html" target="_blank">Mobile 바로가기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="gnb_button" onclick='nav_bar(this)'>
+                        <div class="gnb_text">
+                            <span>Daum</span>
+                            <div class="snb">
+                                <div class="tool_tip_arrow"></div>
+                                <div class="quick">
+                                <a href="website/doum/index.html" target="_blank">WEB 바로가기</a>
+                                <a href="website/doum/mobile_index.html" target="_blank">Mobile 바로가기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="gnb_button" onclick='nav_bar(this)'>
+                        <div class="gnb_text">
+                            <span>Delivery</span>
+                            <div class="snb">
+                                <div class="tool_tip_arrow"></div>
+                                <div class="quick">
+                                <a href="website/delivery/index.html" target="_blank">Mobile 바로가기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="gnb_button" onclick='nav_bar(this)'>
+                        <div class="gnb_text">
+                            <span>Observatory</span>
+                            <div class="snb">
+                                <div class="tool_tip_arrow"></div>
+                                <div class="quick">
+                                    <a href="website/weather/mobile_index.html" target="_blank">Mobile 바로가기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <div class="arrow">
+            <span class="material-icons" onclick='arrow_up()'>expand_less</span>
+            <span class="material-icons" onclick='arrow_down()'>expand_more</span>
+        </div>
+        <!--클릭버튼-->
+        <div class="button_nav_box">
+            <ul class="button-nav">
+                <li>
+                    <a href="#" class="active" onclick='btn_nav(this)'>
+                        <span>01</span>
+                        <div class="button_text_box">
+                            HOME
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick='btn_nav(this)'>
+                        <span>02</span>
+                        <div class="button_text_box">
+                            Diary
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick='btn_nav(this)'>
+                        <span>03</span>
+                        <div class="button_text_box">
+                            MyShop
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick='btn_nav(this)'>
+                        <span>04</span>
+                        <div class="button_text_box">
+                            Daum
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick='btn_nav(this)'>
+                        <span>05</span>
+                        <div class="button_text_box">
+                            Delivery
+                        </div>
+                        </a>
+                </li>
+                <li>
+                    <a href="#" onclick='btn_nav(this)'>
+                        <span>06</span>
+                        <div class="button_text_box">
+                            Observatory
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick='btn_nav(this)'>
+                        <span>07</span>
+                        <div class="button_text_box">
+                            FOOTER
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile_hamburger_box">
+            <a href="#" class="hamburger_icon" onclick='ham_call(this)'><span class="material-icons">menu</span></a>
+            <div class="mobile_menu">
+                <div class="ham_bg"></div>
+                <ul class="ham_nav_list">
+                    <li>
+                    <a href="#" class="active" onclick='ham_nav(this)'>
+                        <div class="hamburger_text_box">
+                            HOME
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='ham_nav(this)'>
+                            <div class="hamburger_text_box">
+                                Diary
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='ham_nav(this)'>
+                            <div class="hamburger_text_box">
+                                MyShop
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='ham_nav(this)'>
+                            <div class="hamburger_text_box">
+                                Daum
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='ham_nav(this)'>
+                            <div class="hamburger_text_box">
+                                Delivery
+                            </div>
+                            </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='ham_nav(this)'>
+                            <div class="hamburger_text_box">
+                                Observatory
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='ham_nav(this)'>
+                            <div class="hamburger_text_box">
+                                FOOTER
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="section-box">
+        <section class="tab_list section0 active">
+            <div class="img_box">
+                 <img src="images/section/0.png" alt="0">
+            </div>
+            <div class="main_title">
+                <h1>Welcome To my PortFolio!</h1>
+            </div>
+            <div class="main_text">
+                <div class="bg"></div>
+                <div class="main_txt">
+                    <span>00</span>
+                    <h2>컨셉</h2>
+                    <br>
+                    <span>1. 땅속으로 점점 들어가는것 처럼 표현</span><br><br>
+                    <span>2. 바로 웹으로 연결 할 수 있도록 함</span><br><br>
+                    <span>3. 반응형을 이용한 간편한 보기효과</span><br><br>
+                    <span>4. 스크롤등을 연결하여 간편한 UI구현</span>
+                </div>
+            </div>
+        </section>
+        <!--section1-->
+        <section class="tab_list section1">
+            <div class="img_box">
+                <img src="images/section/1.png" alt="1">
+            </div>
+            <div class="text_box col4">
+                <div class="bg"></div>
+                <div class="summary">
+                    <span>01</span>
+                    <h2>일기</h2>
+                    <h5>WEB</h5>
+                    <h5>홈페이지 디자인</h5>
+                    <span>HTML : about.html, contact.html, gallery.html</span><br>
+                    <span>CSS : animate.css, style.css</span><br>
+                    <span>Java Script : custom.js</span><br>
+                    <span>레이아웃 : Header, Nav, Banner(1-3), section(1-3), Footer</span></br>
+                    <a href="website/diary/about.html" target="_blank">WEB VIEW</a>
+                </div>
+            </div>
+        </section>
+        <!--section2-->
+        <section class="tab_list section2">
+            <div class="img_box">
+                <img src="images/section/2.png" alt="2">
+            </div>
+            <div class="text_box col4">
+                <div class="bg"></div>
+                <div class="summary">
+                    <span>02</span>
+                    <h2>마켓</h2>
+                    <h5>Responsive WEB</h5>
+                    <h5>반응형 디자인</h5>
+                    <span>HTML : index.html, mobile_index.html, view.html</span><br>
+                    <span>CSS : material-icons.css, notosansKR.css, grid.css, style.css</span><br>
+                    <span>Java Script :jquery.js, script.js</span><br>
+                    <span>레이아웃 : Header, Nav, Section, main, Footer</span></br>
+                    <a href="website/myshop/index.html" target="_blank">WEB VIEW</a>
+                    <a href="website/myshop/mobile_index.html" target="_blank">Mobile VIEW</a>
+                </div>
+            </div>
+        </section>
+        <!--section3-->
+        <section class="tab_list section3">
+            <div class="img_box">
+                <img src="images/section/3.png" alt="3">
+            </div>
+            <div class="text_box col4">
+                <div class="bg"></div>
+                <div class="summary">
+                    <span>03</span>
+                    <h2>다음카페</h2>
+                    <h5>Responsive WEB</h5>
+                    <h5>반응형 디자인</h5>
+                    <span>HTML : index.html, mobile_index.html</span><br>
+                    <span>CSS :all.css, animate.css, material-icons.css, notosansKR.css, grid.css, style.css</span><br>
+                    <span>Java Script : custom.js</span><br>
+                    <span>레이아웃 : Header, Nav, Banner(1-4), Section(1-3), Footer</span></br>
+                    <a href="website/doum/index.html" target="_blank">WEB VIEW</a>
+                    <a href="website/doum/mobile_index.html" target="_blank">Mobile VIEW</a>
+                </div>
+            </div>
+        </section>
+        <!--section4-->
+        <section class="tab_list section4">
+            <div class="img_box">
+                <img src="images/section/4.png" alt="4">
+            </div>
+            <div class="text_box col4">
+                <div class="bg"></div>
+                <div class="summary">
+                    <span>04</span>
+                    <h2>딜리버리</h2>
+                    <h5>Mobile WEB</h5>
+                    <h5>모바일 디자인</h5>
+                    <span>HTML : index.html, main.html, main-menu.html, category.html, view.html</span><br>
+                    <span>CSS :reset.css, material-icons.css, NotoSanskr.css, grid.css, style.css, jquery-ui.css, slick.css, slick-theme.css</span><br>
+                    <span>Java Script :jquery.js, jquery-ui.js, custom.js, jquery.touchSwipe.js, slick.js, jquery.nicescroll.js</span><br>
+                    <span>레이아웃 : Header, content, Footer</span></br>
+                    <a href="website/delivery/index.html" target="_blank">Mobile VIEW</a>
+                </div>
+            </div>
+        </section>
+        <!--section5-->
+        <section class="tab_list section5">
+            <div class="img_box">
+                <img src="images/section/5.png" alt="5">
+            </div>
+            <div class="text_box col4">
+                <div class="bg"></div>
+                <div class="summary">
+                    <span>05</span>
+                    <h2>기상청</h2>
+                    <h5>Mobile WEB</h5>
+                    <h5>모바일 디자인</h5>
+                    <span>HTML : index.html, mobile_index.html</span><br>
+                    <span>CSS : material-icons.css, NotoSanskr.css, weather-icons.css, weather-icons-wind.css, slick.css, style.css</span><br>
+                    <span>Java Script :jquery-min.js, slick.js, custom.js</span><br>
+                    <span>레이아웃 : Header, Main, Footer</span></br>
+                    <a href="website/weather/mobile_index.html" target="_blank">Mobile VIEW</a>
+                </div>
+            </div>
+        </section>
+        <footer class="tab_list">    
+            <div class="text_box col4">
+                <div class="bg"></div>
+                <div class="summary">
+                    <span>06</span>
+                    <h2>PortFolio</h2>
+                    <h5>Responsive WEB</h5>
+                    <h5>반응형 디자인</h5>
+                    <span>HTML : index.html, mobile_index.html</span><br>
+                    <span>CSS : material-icons.css, notosansKR.css, grid.css, style.css</span><br>
+                    <span>Java Script :script.js</span><br>
+                    <span>레이아웃 : Header(Nav),Section(1-5), Footer</span><br>
+                    <a href="mobile_index.html" target="_blank" class="mobile_view">Mobile VIEW</a>
+                    <a href="index.html" target="_blank" class="web_view">WEB VIEW</a>
+                </div>
+            </div>
+            <div class="footer_contect col8">
+                <h1>Contect</h1>
+                <br>
+                <h5>tel : 010-5323-4405</h5>
+                <h5>e-mail : skekaudgh12@naver.com</h5>
+                <h5><a href="https://github.com/nubletea" target="_blank">github</a></h5>
+            </div>
+        </footer>
+    </div>
+<script src="script/script.js"></script>
+</body>
+</html>
