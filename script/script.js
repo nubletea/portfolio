@@ -1,11 +1,44 @@
+const SECTIONS = document.querySelectorAll(".tab_list");
+const NAV_BTNS = document.querySelectorAll(".button-nav a");
+const NAV_INPUTS = document.querySelectorAll(".gnb input");
+const HAN_BTNS = document.querySelectorAll(".ham_nav_list a");
+const HAM_ICON = document.querySelector('.hamburger_icon');
+/* DOM 형식 */
+const DOM_LOAD={
+NAV_BAR:function(){
+    for(let i=0;i<NAV_INPUTS.length;i++){
+    NAV_INPUTS[i].onclick=nav_bar;
+    }
+  },
+BTN_NAV:function(){
+    for(let i=0;i<NAV_BTNS.length;i++){
+      NAV_BTNS[i].onclick=btn_nav;
+    }
+  },
+HAM_NAV:function(){
+    for(let i=0;i<HAN_BTNS.length;i++){
+      HAN_BTNS[i].onclick=ham_nav;
+    }
+  },
+HAM_CALL:function(){
+    HAM_ICON.onclick=ham_call;
+    }
+}
+/* DOM - load */
+window.onload={
+  nav_bar:DOM_LOAD.NAV_BAR(),
+  btn_nav:DOM_LOAD.BTN_NAV(),
+  ham_nav:DOM_LOAD.HAM_NAV(),
+  ham_call:DOM_LOAD.HAM_CALL()
+}
 ///스크롤 작업///
 window.addEventListener("wheel", function (e) {
   if (e.deltaY < 0 && sc.sc_is === true) {
     sc.sc_is = false;
-    arrow_up();
+    arrowFn(-1);
   } else if (e.deltaY > 0 && sc.sc_is === true) {
     sc.sc_is = false;
-    arrow_down();
+    arrowFn(1);
   } else {
     return;
   }
@@ -13,12 +46,6 @@ window.addEventListener("wheel", function (e) {
     sc.sc_is = true;
   }, 500);
 });
-
-const SECTIONS = document.querySelectorAll(".tab_list");
-const NAV_BTNS = document.querySelectorAll(".button-nav a");
-const NAV_INPUTS = document.querySelectorAll(".gnb input");
-const HAN_BTNS = document.querySelectorAll(".ham_nav_list a");
-
 // 오브젝트 모음 //
 const sc = {
   sc_is: true,
@@ -72,31 +99,31 @@ function aro_col(btn, arr, count) {
   arr[count].style.top = "0";
 }
 //button nav
-function btn_nav(ME) {
+function btn_nav() {
   count.for_arr_push(count.arr_button, NAV_BTNS);
-  count.arrow = count.arr_button.indexOf(ME);
+  count.arrow = count.arr_button.indexOf(this);
   aro_col(NAV_BTNS, SECTIONS, count.arrow);
 }
 //ham_call
-function ham_call(ME) {
+function ham_call() {
   if (count.ham_is === true) {
-    ham_col(ME, 0, "close", false);
+    ham_col(HAM_ICON, 0, "close", false);
   } else {
-    ham_col(ME, "-100%", "menu", true);
+    ham_col(HAM_ICON, "-100%", "menu", true);
   }
 }
 function ham_col(ME, value, HTML, is) {
   let ham = document.querySelector(".mobile_menu");
   ham.style.left = value;
-  ME.firstChild.innerHTML = HTML;
+  ME.innerHTML = '<span class="material-icons">'+HTML+'</span>';
   count.ham_is = is;
+  console.log(count.ham_is);
 }
 //hamburger nav
-function ham_nav(ME) {
-  let ham_icon = document.querySelector(".hamburger_icon");
-  ham_call(ham_icon);
+function ham_nav(){
+  ham_call();
   count.for_arr_push(count.arr_ham, HAN_BTNS);
-  count.arrow = count.arr_ham.indexOf(ME);
+  count.arrow = count.arr_ham.indexOf(this);
   aro_col(HAN_BTNS, SECTIONS, count.arrow);
 }
 
@@ -114,14 +141,14 @@ const arrowFn = (step) => {
   aro_col(NAV_BTNS, SECTIONS, pos);
 };
 ///네비게이션 클릭시///
-
-function nav_bar(ME) {
-  let checked = ME.checked;
-  if (checked === true && ME.getAttribute("value") === "Y") {
+function nav_bar() {
+  let checked = this.checked;
+  if (checked === true && this.getAttribute("value") === "Y") {
     nav.for_set_Attr(NAV_INPUTS, "N");
-    ME.checked = false;
+    this.checked = false;
   } else {
     nav.for_set_Attr(NAV_INPUTS, "N");
-    nav.set_Attr(ME, "Y");
+    nav.set_Attr(this, "Y");
   }
 }
+
