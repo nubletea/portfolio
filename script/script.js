@@ -139,6 +139,7 @@ const arrowFn = (step) => {
   }
   count.arrow = pos;
   aro_col(NAV_BTNS, SECTIONS, pos);
+  aro_col(HAN_BTNS, SECTIONS, pos);
 };
 ///네비게이션 클릭시///
 function nav_bar() {
