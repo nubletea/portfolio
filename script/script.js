@@ -2,35 +2,66 @@ const SECTIONS = document.querySelectorAll(".tab_list");
 const NAV_BTNS = document.querySelectorAll(".button-nav a");
 const NAV_INPUTS = document.querySelectorAll(".gnb input");
 const HAN_BTNS = document.querySelectorAll(".ham_nav_list a");
-const HAM_ICON = document.querySelector('.hamburger_icon');
+const HAM_ICON = document.querySelector(".hamburger_icon");
 /* DOM 형식 */
-const DOM_LOAD={
-NAV_BAR:function(){
-    for(let i=0;i<NAV_INPUTS.length;i++){
-    NAV_INPUTS[i].onclick=nav_bar;
-    }
-  },
-BTN_NAV:function(){
-    for(let i=0;i<NAV_BTNS.length;i++){
-      NAV_BTNS[i].onclick=btn_nav;
-    }
-  },
-HAM_NAV:function(){
-    for(let i=0;i<HAN_BTNS.length;i++){
-      HAN_BTNS[i].onclick=ham_nav;
-    }
-  },
-HAM_CALL:function(){
-    HAM_ICON.onclick=ham_call;
-    }
-}
+
+// const DOM_LOAD = {
+//   NAV_BAR: function () {
+//     for (let i = 0; i < NAV_INPUTS.length; i++) {
+//       NAV_INPUTS[i].onclick = nav_bar;
+//     }
+//   },
+//   BTN_NAV: function () {
+//     for (let i = 0; i < NAV_BTNS.length; i++) {
+//       NAV_BTNS[i].onclick = btn_nav;
+//     }
+//   },
+//   HAM_NAV: function () {
+//     for (let i = 0; i < HAN_BTNS.length; i++) {
+//       HAN_BTNS[i].onclick = ham_nav;
+//     }
+//   },
+//   HAM_CALL: function () {
+//     HAM_ICON.onclick = ham_call;
+//   },
+// };
 /* DOM - load */
-window.onload={
-  nav_bar:DOM_LOAD.NAV_BAR(),
-  btn_nav:DOM_LOAD.BTN_NAV(),
-  ham_nav:DOM_LOAD.HAM_NAV(),
-  ham_call:DOM_LOAD.HAM_CALL()
-}
+// window.onload = {
+//   nav_bar: DOM_LOAD.NAV_BAR(),
+//   btn_nav: DOM_LOAD.BTN_NAV(),
+//   ham_nav: DOM_LOAD.HAM_NAV(),
+//   ham_call: DOM_LOAD.HAM_CALL(),
+// };
+const addEventListener = (eventList, fn) => {
+  for (let i = 0; i < eventList.length; i++) {
+    eventList[i].onclick = fn;
+  }
+};
+window.addEventListener("DOMContentLoaded", (e) => {
+  // init
+
+  // event를 여러곳에 걸지 않고 작업(예제)
+  document.querySelector(".arrow").addEventListener("click", (e) => {
+    switch (e.target.innerText) {
+      case "expand_less":
+        arrowFn(-1);
+        break;
+      case "expand_more":
+        arrowFn(1);
+        break;
+      default:
+        new Error("error");
+        break;
+    }
+  });
+
+  // 위와같은 방식으로 바꿔보는것도 좋음
+  addEventListener(NAV_INPUTS, nav_bar);
+  addEventListener(NAV_BTNS, btn_nav);
+  addEventListener(HAN_BTNS, ham_nav);
+  addEventListener([HAM_ICON], ham_call);
+});
+
 ///스크롤 작업///
 window.addEventListener("wheel", function (e) {
   if (e.deltaY < 0 && sc.sc_is === true) {
@@ -46,6 +77,7 @@ window.addEventListener("wheel", function (e) {
     sc.sc_is = true;
   }, 500);
 });
+
 // 오브젝트 모음 //
 const sc = {
   sc_is: true,
@@ -115,12 +147,12 @@ function ham_call() {
 function ham_col(ME, value, HTML, is) {
   let ham = document.querySelector(".mobile_menu");
   ham.style.left = value;
-  ME.innerHTML = '<span class="material-icons">'+HTML+'</span>';
+  ME.innerHTML = '<span class="material-icons">' + HTML + "</span>";
   count.ham_is = is;
   console.log(count.ham_is);
 }
 //hamburger nav
-function ham_nav(){
+function ham_nav() {
   ham_call();
   count.for_arr_push(count.arr_ham, HAN_BTNS);
   count.arrow = count.arr_ham.indexOf(this);
@@ -131,7 +163,6 @@ const arrowFn = (step) => {
   const { arrow } = count;
   const limit = SECTIONS.length;
   let pos = arrow + step;
-
   if (limit == pos) {
     pos = 0;
   } else if (pos < 0) {
@@ -152,4 +183,3 @@ function nav_bar() {
     nav.set_Attr(this, "Y");
   }
 }
-
