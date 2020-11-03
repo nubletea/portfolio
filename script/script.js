@@ -71,15 +71,6 @@ const eye_egg=function(selector){
        left_eye.move(e.pageX,e.pageY);
        right_eye.move(e.pageX,e.pageY);
   });
-// intro_btn
-function mouse_click(){
-    EYE_BOX.style.display="none";
-    INTRO_BTN.innerHTML="";
-    INTRO_BTN.classList.add("active");
-    setTimeout(()=>{
-      INTRO.style.display="none";
-    },1000);
-}
 // 오브젝트 모음 //
 const sc = {
   sc_is: true,
@@ -131,6 +122,15 @@ function aro_col(btn, arr, count) {
   class_change.remove(arr, "active");
   class_change.add(arr[count], "active");
   arr[count].style.top = "0";
+}
+// intro_btn
+function mouse_click(){
+    EYE_BOX.style.display="none";
+    INTRO_BTN.innerHTML="";
+    INTRO_BTN.classList.add("active");
+    setTimeout(()=>{
+      INTRO.style.display="none";
+    },1000);
 }
 //button nav
 function btn_nav() {
