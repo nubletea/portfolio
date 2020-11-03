@@ -3,35 +3,9 @@ const NAV_BTNS = document.querySelectorAll(".button-nav a");
 const NAV_INPUTS = document.querySelectorAll(".gnb input");
 const HAN_BTNS = document.querySelectorAll(".ham_nav_list a");
 const HAM_ICON = document.querySelector(".hamburger_icon");
-/* DOM 형식 */
-
-// const DOM_LOAD = {
-//   NAV_BAR: function () {
-//     for (let i = 0; i < NAV_INPUTS.length; i++) {
-//       NAV_INPUTS[i].onclick = nav_bar;
-//     }
-//   },
-//   BTN_NAV: function () {
-//     for (let i = 0; i < NAV_BTNS.length; i++) {
-//       NAV_BTNS[i].onclick = btn_nav;
-//     }
-//   },
-//   HAM_NAV: function () {
-//     for (let i = 0; i < HAN_BTNS.length; i++) {
-//       HAN_BTNS[i].onclick = ham_nav;
-//     }
-//   },
-//   HAM_CALL: function () {
-//     HAM_ICON.onclick = ham_call;
-//   },
-// };
-/* DOM - load */
-// window.onload = {
-//   nav_bar: DOM_LOAD.NAV_BAR(),
-//   btn_nav: DOM_LOAD.BTN_NAV(),
-//   ham_nav: DOM_LOAD.HAM_NAV(),
-//   ham_call: DOM_LOAD.HAM_CALL(),
-// };
+const INTRO = document.querySelector(".intro");
+const EYE_BOX = document.querySelector(".eye_box");
+const INTRO_BTN = document.querySelector(".intro_btn");
 const addEventListener = (eventList, fn) => {
   for (let i = 0; i < eventList.length; i++) {
     eventList[i].onclick = fn;
@@ -39,7 +13,6 @@ const addEventListener = (eventList, fn) => {
 };
 window.addEventListener("DOMContentLoaded", (e) => {
   // init
-
   // event를 여러곳에 걸지 않고 작업(예제)
   document.querySelector(".arrow").addEventListener("click", (e) => {
     switch (e.target.innerText) {
@@ -60,8 +33,8 @@ window.addEventListener("DOMContentLoaded", (e) => {
   addEventListener(NAV_BTNS, btn_nav);
   addEventListener(HAN_BTNS, ham_nav);
   addEventListener([HAM_ICON], ham_call);
+  addEventListener([INTRO_BTN], mouse_click);
 });
-
 ///스크롤 작업///
 window.addEventListener("wheel", function (e) {
   if (e.deltaY < 0 && sc.sc_is === true) {
@@ -77,7 +50,36 @@ window.addEventListener("wheel", function (e) {
     sc.sc_is = true;
   }, 500);
 });
-
+/* intro */
+// eye
+const eye_egg=function(selector){
+  let   LEFT_EYE=document.querySelector(selector),
+        EYE=LEFT_EYE.querySelector('.eye'),
+        EYE_s=LEFT_EYE.getBoundingClientRect();
+        
+  let move=function(mouseX, mouseY){
+      let doto=Math.atan2(mouseY-(EYE_s.y+EYE_s.height*0.5),mouseX-(EYE_s.x+EYE_s.width*0.5));
+      EYE.style.transform="rotate("+(180*doto/Math.PI+90)+'deg)';
+      };
+      return{
+        move:move  
+      };
+  };
+   const left_eye=eye_egg('.left_eye'),
+         right_eye=eye_egg('.right_eye');
+   window.addEventListener('mousemove',function(e){
+       left_eye.move(e.pageX,e.pageY);
+       right_eye.move(e.pageX,e.pageY);
+  });
+// intro_btn
+function mouse_click(){
+    EYE_BOX.style.display="none";
+    INTRO_BTN.innerHTML="";
+    INTRO_BTN.classList.add("active");
+    setTimeout(()=>{
+      INTRO.style.display="none";
+    },1000);
+}
 // 오브젝트 모음 //
 const sc = {
   sc_is: true,
