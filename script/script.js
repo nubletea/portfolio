@@ -6,6 +6,7 @@ const HAM_ICON = document.querySelector(".hamburger_icon");
 const INTRO = document.querySelector(".intro");
 const EYE_BOX = document.querySelector(".eye_box");
 const INTRO_BTN = document.querySelector(".intro_btn");
+const SUMMARY = document.querySelectorAll(".summary");
 const addEventListener = (eventList, fn) => {
   for (let i = 0; i < eventList.length; i++) {
     eventList[i].onclick = fn;
@@ -71,6 +72,15 @@ const eye_egg=function(selector){
        left_eye.move(e.pageX,e.pageY);
        right_eye.move(e.pageX,e.pageY);
   });
+// intro_btn
+function mouse_click(){
+    EYE_BOX.style.display="none";
+    INTRO_BTN.innerHTML="";
+    INTRO_BTN.classList.add("active");
+    setTimeout(()=>{
+      INTRO.style.display="none";
+    },1000);
+}
 // 오브젝트 모음 //
 const sc = {
   sc_is: true,
@@ -121,16 +131,8 @@ function aro_col(btn, arr, count) {
   class_change.add(btn[count], "active");
   class_change.remove(arr, "active");
   class_change.add(arr[count], "active");
+  summary_evt();
   arr[count].style.top = "0";
-}
-// intro_btn
-function mouse_click(){
-    EYE_BOX.style.display="none";
-    INTRO_BTN.innerHTML="";
-    INTRO_BTN.classList.add("active");
-    setTimeout(()=>{
-      INTRO.style.display="none";
-    },1000);
 }
 //button nav
 function btn_nav() {
@@ -185,3 +187,12 @@ function nav_bar() {
     nav.set_Attr(this, "Y");
   }
 }
+/// TEXT_EVENT////
+const summary_evt = () => {
+  if(count.arrow===0){
+    return class_change.remove(SUMMARY,'active');
+  }else{
+  class_change.remove(SUMMARY,'active');
+  class_change.add(SUMMARY[count.arrow-1],'active');
+  }
+};
