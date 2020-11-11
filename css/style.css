@@ -28,6 +28,75 @@ h2{font-size:3rem;}
 h3{font-size:2.5rem;}
 h4{font-size:2rem;}
 h5{font-size:1.5rem;}
+/* intro */
+.intro{
+    width:100vw;
+    height:100vh;
+    position: fixed;
+    background:orange;
+    z-index: 120;
+}
+/* // eye_box // */
+.eye_box{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.eyes{
+    position: relative;
+    top:-200px;
+    width:130px;
+    height:130px;
+    border:4px solid #000;
+    border-radius: 50%;
+    background-color:#fff;
+    margin:5rem;
+}
+.eye{
+    position: absolute;
+    left:45px;
+    bottom:0;
+    width:30px;
+    height:inherit;
+}
+.eye::before{
+    content: '';
+    display:inline-block;
+    left:0;
+    bottom:0;
+    width:inherit;
+    height:30px;
+    border-radius: 50%;
+    background-color: #000;
+}
+/* // mouse // */
+.intro_btn{
+    display:block;
+    position: absolute;
+    z-index: 121;
+    width:400px;
+    height:200px;
+    background:red;
+    top:calc(50% - 100px);
+    left:calc(50% - 200px);
+    font-size:4rem;
+    border-radius: 50%;
+    border:none;
+    text-align: center;
+    color:pink;
+    line-height: 184px;
+    box-shadow: 2px 2px 5px red;
+}
+.intro_btn.active{
+    transition:1s;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    border-radius: 0px;
+}
 /* header */
 header{
     width:100%;
@@ -194,14 +263,20 @@ section .img_box{
     width:100%;
     height:100%;
 }
-section .summary{
+.summary{
     width:100%;
     z-index:10;
     padding-left:3rem;
     padding-top:15%;
     color:#fff;
     top:20%;
+    opacity:0;
+    transform: translateY(100px);
+}
+.summary.active{
+    transition:1s ease-in-out all;
     opacity:.8;
+    transform: translateY(0);
 }
 section:not(:first-child) .img_box{
     text-align:right;
@@ -352,7 +427,8 @@ footer .summary{
     padding-top:15%;
     color:#fff;
     top:20%;
-    opacity:.8;
+    opacity:0;
+    transform: translateY(100px);
 }
 footer .text_box{
     z-index:2;
@@ -388,6 +464,9 @@ footer .bg{
 }
 @media (max-width:1200px){
     /* logo + gnb */
+    .intro{
+        display:none;
+    }
     .logo{
         display:none;
     }
@@ -553,5 +632,9 @@ footer .bg{
     }
     .summary a.web_view{
         display:block;
+    }
+    .git img{
+        max-width:50px;
+        height:50px;
     }
 }
