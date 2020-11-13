@@ -7,6 +7,7 @@ const NAV_SPAN = document.querySelectorAll(".gnb span");
 const NAV_BAR = document.querySelector(".nav_bar");
 const HAN_BTNS = document.querySelectorAll(".ham_nav_list a");
 const HAM_ICON = document.querySelector(".hamburger_icon");
+const ARROW_A = document.querySelector(".arrow a"); 
 const INTRO = document.querySelector(".intro");
 const EYE_BOX = document.querySelector(".eye_box");
 const INTRO_BTN = document.querySelector(".intro_btn");
@@ -34,6 +35,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   });
 
   // 위와같은 방식으로 바꿔보는것도 좋음
+  quick_evt();
   nav_hover();
   addEventListener(NAV_INPUTS, nav_bar);
   addEventListener(NAV_BTNS, btn_nav);
@@ -116,7 +118,7 @@ const count = {
     for (let i = 0; i < ME.length; i++) {
       arrname.push(ME[i]);
     }
-  },
+  }
 };
 const class_change = {
   remove: function (ME, class_name) {
@@ -128,6 +130,10 @@ const class_change = {
     ME.classList.add(class_name);
   },
 };
+const quick = {
+  img_arr:[],
+  link_arr:[]
+}
 //버튼 콜백
 function aro_col(btn, arr, count) {
   style_change.top(arr, 0, "-100%");
@@ -137,6 +143,7 @@ function aro_col(btn, arr, count) {
   class_change.remove(arr, "active");
   class_change.add(arr[count], "active");
   summary_evt();
+  quick_evt();
   arr[count].style.top = "0";
 }
 //button nav
@@ -217,4 +224,13 @@ const nav_hover = () => {
     NAV.onmouseleave = () => {
       NAV_BAR.style.display="none";
     }
+}
+/// quick_evt ///
+const quick_evt = () => {
+  for(let i=0;i<SECTIONS.length;i++){
+    quick.link_arr.push(SECTIONS[i].dataset.link);
+    quick.img_arr.push(i);
+  }
+  ARROW_A.innerHTML='<img src="images/git-icon/'+quick.img_arr[count.arrow]+'.png" alt="'+quick.img_arr[count.arrow]+'"><br>git';
+  ARROW_A.setAttribute('href','https://github.com/nubletea'+quick.link_arr[count.arrow]);
 }
