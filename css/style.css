@@ -199,7 +199,10 @@ nav{
     right:0;
 }
 .arrow a{
+    position: relative;
     display:block;
+    text-align: center;
+    font-weight: 700;
     animation-name: quick;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -208,7 +211,6 @@ nav{
 .arrow img{
     width:4rem;
     height:4rem;
-    margin-left:1.5rem;
 }
 .arrow span{
     cursor: pointer;
@@ -491,10 +493,10 @@ footer .bg{
 }
 @keyframes quick{
     from{
-        padding-bottom:2rem;
+        margin-bottom:4rem;
     }
     to{
-        padding-bottom:0;
+        margin-bottom:2rem;
     }
 }
 @media (max-width:1200px){
@@ -565,7 +567,15 @@ footer .bg{
         font-weight: 800;
     }
     /* arrow */
+    .arrow a{
+        color:#fff;
+    }
+    .arrow img{
+        width:3rem;
+        height:3rem;
+    }
     .arrow span{
+        display:inline-block;
         font-size:2rem;
         margin:1rem;
     }
