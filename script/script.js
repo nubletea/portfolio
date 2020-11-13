@@ -1,6 +1,10 @@
 const SECTIONS = document.querySelectorAll(".tab_list");
 const NAV_BTNS = document.querySelectorAll(".button-nav a");
 const NAV_INPUTS = document.querySelectorAll(".gnb input");
+const NAV = document.querySelector('nav');
+const NAV_LI = document.querySelectorAll(".gnb li");
+const NAV_SPAN = document.querySelectorAll(".gnb span");
+const NAV_BAR = document.querySelector(".nav_bar");
 const HAN_BTNS = document.querySelectorAll(".ham_nav_list a");
 const HAM_ICON = document.querySelector(".hamburger_icon");
 const INTRO = document.querySelector(".intro");
@@ -30,6 +34,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   });
 
   // 위와같은 방식으로 바꿔보는것도 좋음
+  nav_hover();
   addEventListener(NAV_INPUTS, nav_bar);
   addEventListener(NAV_BTNS, btn_nav);
   addEventListener(HAN_BTNS, ham_nav);
@@ -180,9 +185,11 @@ const arrowFn = (step) => {
 function nav_bar() {
   let checked = this.checked;
   if (checked === true && this.getAttribute("value") === "Y") {
+    NAV_BAR.style.display="block";
     nav.for_set_Attr(NAV_INPUTS, "N");
     this.checked = false;
   } else {
+    NAV_BAR.style.display="none";
     nav.for_set_Attr(NAV_INPUTS, "N");
     nav.set_Attr(this, "Y");
   }
@@ -196,3 +203,18 @@ const summary_evt = () => {
   class_change.add(SUMMARY[count.arrow-1],'active');
   }
 };
+/// Nav-hover ///
+const nav_hover = () => {
+    for(let i=0;i<NAV_SPAN.length;i++){
+      NAV_SPAN[i].onmouseover = () => {
+        let li_width=NAV_LI[i].offsetWidth;
+        let span_width=NAV_SPAN[i].offsetWidth;
+        NAV_BAR.style.display="block";
+        NAV_BAR.style.left=li_width*i+((li_width-span_width)/2)+'px';
+        NAV_BAR.style.width=span_width+'px';
+      }
+    }
+    NAV.onmouseleave = () => {
+      NAV_BAR.style.display="none";
+    }
+}
