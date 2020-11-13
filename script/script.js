@@ -210,7 +210,7 @@ const nav_hover = () => {
         let li_width=NAV_LI[i].offsetWidth;
         let span_width=NAV_SPAN[i].offsetWidth;
         NAV_BAR.style.display="block";
-        NAV_BAR.style.left=li_width*i+((li_width-span_width)/2)+'px';
+        NAV_BAR.style.left=li_width*i+((li_width-span_width)/2+64)+'px';
         NAV_BAR.style.width=span_width+'px';
       }
     }
