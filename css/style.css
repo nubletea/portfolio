@@ -107,15 +107,18 @@ header{
     z-index:100;
     padding:1rem;
 }
+nav{
+    padding:1rem 4rem;
+}
 .gnb{
+    padding:0;
+    margin:0;
     display:flex;
-    padding-right:4rem;
 }
 .gnb li{
     width:120px;
     position: relative;
     text-align:center;
-    margin-right:1rem;
 }
 .gnb li input[type="radio"]{
     opacity:0;
@@ -150,9 +153,6 @@ header{
     color:#bbb !important;
 }
 .gnb_text span{
-    display:block;
-    width:100%;
-    padding:.5rem;
     border-radius:10px;
     font-weight:700;
     color:#000;
@@ -162,8 +162,11 @@ header{
     -khtml-user-select: none;
     user-select:none;
 }
+.gnb_text span:hover{
+    color:#aaa;
+}
 .gnb li input[type="radio"]:checked ~ .gnb_text span{
-    font-size:.95rem;
+    font-size:.90rem;
     color:#aaa;
 }
 .snb{
@@ -176,6 +179,16 @@ header{
 }
 .gnb li input[type="radio"]:checked ~ .gnb_text .snb{
     display:block;
+}
+/* nav_bar */
+.nav_bar{
+    background:#aaa;
+    width:1rem;
+    height:5px;
+    position: relative;
+    left:0;
+    display:none;
+    transition: .5s;
 }
 /* arrow */
 .arrow{
